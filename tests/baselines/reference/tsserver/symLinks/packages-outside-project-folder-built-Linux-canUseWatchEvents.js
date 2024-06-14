@@ -256,7 +256,7 @@ Info seq  [hh:mm:ss:mss] event:
       }
     }
 Custom watchFile:: Added:: {"id":3,"path":"/home/src/projects/a/1/a-impl/a/lib/index.d.ts"}
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,
@@ -264,13 +264,13 @@ Info seq  [hh:mm:ss:mss] event:
       "event": "createDirectoryWatcher",
       "body": {
         "id": 4,
-        "path": "/home/src/projects/a",
-        "recursive": true,
+        "path": "/home/src/projects/a/1/a-impl/a/lib",
+        "recursive": false,
         "ignoreUpdate": true
       }
     }
-Custom watchDirectory:: Added:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Custom watchDirectory:: Added:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib/a.d.ts 500 undefined WatchType: Closed Script info
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -295,7 +295,7 @@ Info seq  [hh:mm:ss:mss] event:
       }
     }
 Custom watchFile:: Added:: {"id":6,"path":"/home/src/projects/c/3/c-impl/c/lib/index.d.ts"}
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,
@@ -303,13 +303,13 @@ Info seq  [hh:mm:ss:mss] event:
       "event": "createDirectoryWatcher",
       "body": {
         "id": 7,
-        "path": "/home/src/projects/c",
-        "recursive": true,
+        "path": "/home/src/projects/c/3/c-impl/c/lib",
+        "recursive": false,
         "ignoreUpdate": true
       }
     }
-Custom watchDirectory:: Added:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Custom watchDirectory:: Added:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib/c.d.ts 500 undefined WatchType: Closed Script info
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -596,9 +596,13 @@ PolledWatches::
 /home/src/projects/c/3/c-impl/c/package.json: *new*
   {"event":{"id":14,"path":"/home/src/projects/c/3/c-impl/c/package.json"}}
 
+FsWatches::
+/home/src/projects/a/1/a-impl/a/lib: *new*
+  {"event":{"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}}
+/home/src/projects/c/3/c-impl/c/lib: *new*
+  {"event":{"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}}
+
 FsWatchesRecursive::
-/home/src/projects/a: *new*
-  {"event":{"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/a/1/a-impl/a/lib/node_modules: *new*
   {"event":{"id":12,"path":"/home/src/projects/a/1/a-impl/a/lib/node_modules","recursive":true}}
 /home/src/projects/a/1/a-impl/a/node_modules: *new*
@@ -615,8 +619,6 @@ FsWatchesRecursive::
   {"event":{"id":17,"path":"/home/src/projects/b/2/node_modules/@types","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/b/node_modules/@types: *new*
   {"event":{"id":18,"path":"/home/src/projects/b/node_modules/@types","recursive":true,"ignoreUpdate":true}}
-/home/src/projects/c: *new*
-  {"event":{"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/node_modules/@types: *new*
   {"event":{"id":19,"path":"/home/src/projects/node_modules/@types","recursive":true,"ignoreUpdate":true}}
 
@@ -756,42 +758,11 @@ Info seq  [hh:mm:ss:mss] event:
 After running Immedidate callback:: count: 0
 
 change in unrelated folder in a
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/2/unrelated/somethingUnrelated.ts created
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/2/unrelated/somethingUnrelated.ts updated
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/2/unrelated updated
-Before request
+Before running Timeout callback:: count: 0
 //// [/home/src/projects/a/2/unrelated/somethingUnrelated.ts] Inode:: 56
 export const a = 10;
 
 
-Info seq  [hh:mm:ss:mss] request:
-    {
-      "command": "watchChange",
-      "arguments": {
-        "id": 4,
-        "created": [
-          "/home/src/projects/a/2/unrelated/somethingUnrelated.ts"
-        ]
-      },
-      "seq": 3,
-      "type": "request"
-    }
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/2/unrelated/somethingUnrelated.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/2/unrelated/somethingUnrelated.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] response:
-    {
-      "responseRequired": false
-    }
-After request
-
-Timeout callback:: count: 1
-2: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
-
-Before running Timeout callback:: count: 1
-2: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-
-Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 After running Timeout callback:: count: 0
 
 Before running Timeout callback:: count: 0
@@ -809,7 +780,7 @@ Info seq  [hh:mm:ss:mss] request:
           "/home/src/projects/b/2/b-impl/b/src/index.ts"
         ]
       },
-      "seq": 4,
+      "seq": 3,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] response:
@@ -819,10 +790,10 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-3: checkOne *new*
+2: checkOne *new*
 
 Before running Timeout callback:: count: 1
-3: checkOne
+2: checkOne
 
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -894,7 +865,7 @@ Info seq  [hh:mm:ss:mss] event:
       "type": "event",
       "event": "requestCompleted",
       "body": {
-        "request_seq": 4,
+        "request_seq": 3,
         "performanceData": {
           "updateGraphDurationMs": *
         }
@@ -903,42 +874,11 @@ Info seq  [hh:mm:ss:mss] event:
 After running Immedidate callback:: count: 0
 
 change in unrelated folder in c
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/4/unrelated/somethingUnrelated.ts created
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/4/unrelated/somethingUnrelated.ts updated
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/4/unrelated updated
-Before request
+Before running Timeout callback:: count: 0
 //// [/home/src/projects/c/4/unrelated/somethingUnrelated.ts] Inode:: 57
 export const a = 10;
 
 
-Info seq  [hh:mm:ss:mss] request:
-    {
-      "command": "watchChange",
-      "arguments": {
-        "id": 7,
-        "created": [
-          "/home/src/projects/c/4/unrelated/somethingUnrelated.ts"
-        ]
-      },
-      "seq": 5,
-      "type": "request"
-    }
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/4/unrelated/somethingUnrelated.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/4/unrelated/somethingUnrelated.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] response:
-    {
-      "responseRequired": false
-    }
-After request
-
-Timeout callback:: count: 1
-4: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
-
-Before running Timeout callback:: count: 1
-4: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-
-Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 After running Timeout callback:: count: 0
 
 Before running Timeout callback:: count: 0
@@ -956,7 +896,7 @@ Info seq  [hh:mm:ss:mss] request:
           "/home/src/projects/b/2/b-impl/b/src/index.ts"
         ]
       },
-      "seq": 6,
+      "seq": 4,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] response:
@@ -966,10 +906,10 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-5: checkOne *new*
+3: checkOne *new*
 
 Before running Timeout callback:: count: 1
-5: checkOne
+3: checkOne
 
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -1041,7 +981,7 @@ Info seq  [hh:mm:ss:mss] event:
       "type": "event",
       "event": "requestCompleted",
       "body": {
-        "request_seq": 6,
+        "request_seq": 4,
         "performanceData": {
           "updateGraphDurationMs": *
         }
@@ -1050,42 +990,11 @@ Info seq  [hh:mm:ss:mss] event:
 After running Immedidate callback:: count: 0
 
 change in unrelated folder in a
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/2/unrelated/anotherFile.ts created
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/2/unrelated/anotherFile.ts updated
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/2/unrelated updated
-Before request
+Before running Timeout callback:: count: 0
 //// [/home/src/projects/a/2/unrelated/anotherFile.ts] Inode:: 58
 export const a = 10;
 
 
-Info seq  [hh:mm:ss:mss] request:
-    {
-      "command": "watchChange",
-      "arguments": {
-        "id": 4,
-        "created": [
-          "/home/src/projects/a/2/unrelated/anotherFile.ts"
-        ]
-      },
-      "seq": 7,
-      "type": "request"
-    }
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/2/unrelated/anotherFile.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/2/unrelated/anotherFile.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] response:
-    {
-      "responseRequired": false
-    }
-After request
-
-Timeout callback:: count: 1
-6: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
-
-Before running Timeout callback:: count: 1
-6: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-
-Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 After running Timeout callback:: count: 0
 
 Before running Timeout callback:: count: 0
@@ -1103,7 +1012,7 @@ Info seq  [hh:mm:ss:mss] request:
           "/home/src/projects/b/2/b-impl/b/src/index.ts"
         ]
       },
-      "seq": 8,
+      "seq": 5,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] response:
@@ -1113,10 +1022,10 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-7: checkOne *new*
+4: checkOne *new*
 
 Before running Timeout callback:: count: 1
-7: checkOne
+4: checkOne
 
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -1188,7 +1097,7 @@ Info seq  [hh:mm:ss:mss] event:
       "type": "event",
       "event": "requestCompleted",
       "body": {
-        "request_seq": 8,
+        "request_seq": 5,
         "performanceData": {
           "updateGraphDurationMs": *
         }
@@ -1197,42 +1106,11 @@ Info seq  [hh:mm:ss:mss] event:
 After running Immedidate callback:: count: 0
 
 change in unrelated folder in c
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/4/unrelated/anotherFile.ts created
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/4/unrelated/anotherFile.ts updated
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/4/unrelated updated
-Before request
+Before running Timeout callback:: count: 0
 //// [/home/src/projects/c/4/unrelated/anotherFile.ts] Inode:: 59
 export const a = 10;
 
 
-Info seq  [hh:mm:ss:mss] request:
-    {
-      "command": "watchChange",
-      "arguments": {
-        "id": 7,
-        "created": [
-          "/home/src/projects/c/4/unrelated/anotherFile.ts"
-        ]
-      },
-      "seq": 9,
-      "type": "request"
-    }
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/4/unrelated/anotherFile.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/4/unrelated/anotherFile.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] response:
-    {
-      "responseRequired": false
-    }
-After request
-
-Timeout callback:: count: 1
-8: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
-
-Before running Timeout callback:: count: 1
-8: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-
-Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 After running Timeout callback:: count: 0
 
 Before running Timeout callback:: count: 0
@@ -1250,7 +1128,7 @@ Info seq  [hh:mm:ss:mss] request:
           "/home/src/projects/b/2/b-impl/b/src/index.ts"
         ]
       },
-      "seq": 10,
+      "seq": 6,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] response:
@@ -1260,10 +1138,10 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-9: checkOne *new*
+5: checkOne *new*
 
 Before running Timeout callback:: count: 1
-9: checkOne
+5: checkOne
 
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -1335,7 +1213,7 @@ Info seq  [hh:mm:ss:mss] event:
       "type": "event",
       "event": "requestCompleted",
       "body": {
-        "request_seq": 10,
+        "request_seq": 6,
         "performanceData": {
           "updateGraphDurationMs": *
         }
@@ -1345,23 +1223,21 @@ After running Immedidate callback:: count: 0
 
 Clean dependencies build
 Custom watchFile:: Triggered:: {"id":8,"path":"/home/src/projects/c/3/c-impl/c/lib/c.d.ts"}:: /home/src/projects/c/3/c-impl/c/lib/c.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/c.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/c.js deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/c.d.ts deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/c.js deleted
 Custom watchFile:: Triggered:: {"id":6,"path":"/home/src/projects/c/3/c-impl/c/lib/index.d.ts"}:: /home/src/projects/c/3/c-impl/c/lib/index.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/index.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/index.js deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/index.d.ts deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/index.js deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt deleted
 Custom watchFile:: Triggered:: {"id":5,"path":"/home/src/projects/a/1/a-impl/a/lib/a.d.ts"}:: /home/src/projects/a/1/a-impl/a/lib/a.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/a.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/a.js deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/a.d.ts deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/a.js deleted
 Custom watchFile:: Triggered:: {"id":3,"path":"/home/src/projects/a/1/a-impl/a/lib/index.d.ts"}:: /home/src/projects/a/1/a-impl/a/lib/index.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/index.d.ts deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/index.js deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt deleted
-Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/index.d.ts deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/index.js deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo deleted
+Custom watchDirectory:: Triggered Ignored:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}:: /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt deleted
 Before request
 //// [/home/src/projects/c/3/c-impl/c/lib/c.js] deleted
 //// [/home/src/projects/c/3/c-impl/c/lib/c.d.ts] deleted
@@ -1394,8 +1270,7 @@ Info seq  [hh:mm:ss:mss] request:
             "/home/src/projects/c/3/c-impl/c/lib/index.d.ts",
             "/home/src/projects/c/3/c-impl/c/lib/index.js",
             "/home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo",
-            "/home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt",
-            "/home/src/projects/c/3/c-impl/c/lib"
+            "/home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt"
           ]
         },
         {
@@ -1418,8 +1293,7 @@ Info seq  [hh:mm:ss:mss] request:
             "/home/src/projects/a/1/a-impl/a/lib/index.d.ts",
             "/home/src/projects/a/1/a-impl/a/lib/index.js",
             "/home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo",
-            "/home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt",
-            "/home/src/projects/a/1/a-impl/a/lib"
+            "/home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt"
           ]
         },
         {
@@ -1429,34 +1303,31 @@ Info seq  [hh:mm:ss:mss] request:
           ]
         }
       ],
-      "seq": 11,
+      "seq": 7,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] FileWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts 2:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib/c.d.ts 500 undefined WatchType: Closed Script info
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.json
 Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms FileWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts 2:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib/c.d.ts 500 undefined WatchType: Closed Script info
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.js :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.js :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.js :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.d.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.js :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.d.ts :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.d.ts :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.js :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.d.ts :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.js :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.js :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.js :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib :: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] FileWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/index.d.ts 2:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib/index.d.ts 500 undefined WatchType: Closed Script info
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.json, Cancelled earlier one
 Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*, Cancelled earlier one
@@ -1465,27 +1336,24 @@ Info seq  [hh:mm:ss:mss] FileWatcher:: Triggered with /home/src/projects/a/1/a-i
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.json, Cancelled earlier one
 Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*, Cancelled earlier one
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms FileWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.d.ts 2:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib/a.d.ts 500 undefined WatchType: Closed Script info
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.d.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.d.ts :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.d.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.js :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.d.ts :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.js :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.js :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.d.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/a.js :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.d.ts :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.d.ts :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.js :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.d.ts :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.js :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.js :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.js :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation, Cancelled earlier one
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib :: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/tsconfig.tsbuildinfo.readable.baseline.txt :: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] FileWatcher:: Triggered with /home/src/projects/a/1/a-impl/a/lib/index.d.ts 2:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib/index.d.ts 500 undefined WatchType: Closed Script info
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.json, Cancelled earlier one
 Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*, Cancelled earlier one
@@ -1497,9 +1365,9 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 3
-29: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
-30: /home/src/projects/b/2/b-impl/b/tsconfig.json *new*
-31: *ensureProjectForOpenFiles* *new*
+23: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
+24: /home/src/projects/b/2/b-impl/b/tsconfig.json *new*
+25: *ensureProjectForOpenFiles* *new*
 
 Projects::
 /home/src/projects/b/2/b-impl/b/tsconfig.json (Configured) *changed*
@@ -1542,9 +1410,9 @@ ScriptInfos::
         /home/src/projects/b/2/b-impl/b/tsconfig.json *deleted*
 
 Before running Timeout callback:: count: 3
-29: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
-30: /home/src/projects/b/2/b-impl/b/tsconfig.json
-31: *ensureProjectForOpenFiles*
+23: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
+24: /home/src/projects/b/2/b-impl/b/tsconfig.json
+25: *ensureProjectForOpenFiles*
 
 Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.json
@@ -1620,7 +1488,7 @@ Info seq  [hh:mm:ss:mss] event:
     }
 Custom watchDirectory:: Added:: {"id":24,"path":"/home/src/projects/node_modules","recursive":true}
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/node_modules 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,
@@ -1630,9 +1498,9 @@ Info seq  [hh:mm:ss:mss] event:
         "id": 4
       }
     }
-Custom watchDirectory:: Close:: {"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Custom watchDirectory:: Close:: {"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,
@@ -1642,8 +1510,8 @@ Info seq  [hh:mm:ss:mss] event:
         "id": 7
       }
     }
-Custom watchDirectory:: Close:: {"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Custom watchDirectory:: Close:: {"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Close:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib/node_modules 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -1743,6 +1611,12 @@ PolledWatches *deleted*::
 /home/src/projects/c/3/c-impl/c/package.json:
   {"event":{"id":14,"path":"/home/src/projects/c/3/c-impl/c/package.json"}}
 
+FsWatches *deleted*::
+/home/src/projects/a/1/a-impl/a/lib:
+  {"event":{"id":4,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}}
+/home/src/projects/c/3/c-impl/c/lib:
+  {"event":{"id":7,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}}
+
 FsWatchesRecursive::
 /home/src/projects/b/2/b-impl/b/node_modules:
   {"event":{"id":10,"path":"/home/src/projects/b/2/b-impl/b/node_modules","recursive":true}}
@@ -1770,14 +1644,10 @@ FsWatchesRecursive::
   {"event":{"id":19,"path":"/home/src/projects/node_modules/@types","recursive":true,"ignoreUpdate":true}}
 
 FsWatchesRecursive *deleted*::
-/home/src/projects/a:
-  {"event":{"id":4,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/a/1/a-impl/a/lib/node_modules:
   {"event":{"id":12,"path":"/home/src/projects/a/1/a-impl/a/lib/node_modules","recursive":true}}
 /home/src/projects/a/1/a-impl/a/node_modules:
   {"event":{"id":13,"path":"/home/src/projects/a/1/a-impl/a/node_modules","recursive":true}}
-/home/src/projects/c:
-  {"event":{"id":7,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}}
 
 Projects::
 /home/src/projects/b/2/b-impl/b/tsconfig.json (Configured) *changed*
@@ -1804,7 +1674,7 @@ Info seq  [hh:mm:ss:mss] request:
           "/home/src/projects/b/2/b-impl/b/src/index.ts"
         ]
       },
-      "seq": 12,
+      "seq": 8,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] response:
@@ -1814,10 +1684,10 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-32: checkOne *new*
+26: checkOne *new*
 
 Before running Timeout callback:: count: 1
-32: checkOne
+26: checkOne
 
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -1903,7 +1773,7 @@ Info seq  [hh:mm:ss:mss] event:
       "type": "event",
       "event": "requestCompleted",
       "body": {
-        "request_seq": 12,
+        "request_seq": 8,
         "performanceData": {
           "updateGraphDurationMs": *
         }
@@ -2077,7 +1947,7 @@ Info seq  [hh:mm:ss:mss] request:
           ]
         }
       ],
-      "seq": 13,
+      "seq": 9,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] FileWatcher:: Triggered with /home/src/projects/c/3/c-impl/c/lib/c.d.ts 0:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib/c.d.ts 500 undefined WatchType: Closed Script info
@@ -2116,7 +1986,7 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-39: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
+33: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation *new*
 
 ScriptInfos::
 /a/lib/lib.d.ts
@@ -2149,7 +2019,7 @@ ScriptInfos::
     containingProjects: 0
 
 Before running Timeout callback:: count: 1
-39: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
+33: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 
 Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.jsonFailedLookupInvalidation
 Info seq  [hh:mm:ss:mss] Scheduled: /home/src/projects/b/2/b-impl/b/tsconfig.json
@@ -2157,8 +2027,8 @@ Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*
 After running Timeout callback:: count: 2
 
 Timeout callback:: count: 2
-40: /home/src/projects/b/2/b-impl/b/tsconfig.json *new*
-41: *ensureProjectForOpenFiles* *new*
+34: /home/src/projects/b/2/b-impl/b/tsconfig.json *new*
+35: *ensureProjectForOpenFiles* *new*
 
 Projects::
 /home/src/projects/b/2/b-impl/b/tsconfig.json (Configured) *changed*
@@ -2167,12 +2037,12 @@ Projects::
     dirty: true *changed*
 
 Before running Timeout callback:: count: 2
-40: /home/src/projects/b/2/b-impl/b/tsconfig.json
-41: *ensureProjectForOpenFiles*
+34: /home/src/projects/b/2/b-impl/b/tsconfig.json
+35: *ensureProjectForOpenFiles*
 
 Info seq  [hh:mm:ss:mss] Running: /home/src/projects/b/2/b-impl/b/tsconfig.json
 Info seq  [hh:mm:ss:mss] Starting updateGraphWorker: Project: /home/src/projects/b/2/b-impl/b/tsconfig.json
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,
@@ -2180,14 +2050,14 @@ Info seq  [hh:mm:ss:mss] event:
       "event": "createDirectoryWatcher",
       "body": {
         "id": 25,
-        "path": "/home/src/projects/a",
-        "recursive": true,
+        "path": "/home/src/projects/a/1/a-impl/a/lib",
+        "recursive": false,
         "ignoreUpdate": true
       }
     }
-Custom watchDirectory:: Added:: {"id":25,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
-Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Custom watchDirectory:: Added:: {"id":25,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,
@@ -2195,13 +2065,13 @@ Info seq  [hh:mm:ss:mss] event:
       "event": "createDirectoryWatcher",
       "body": {
         "id": 26,
-        "path": "/home/src/projects/c",
-        "recursive": true,
+        "path": "/home/src/projects/c/3/c-impl/c/lib",
+        "recursive": false,
         "ignoreUpdate": true
       }
     }
-Custom watchDirectory:: Added:: {"id":26,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}
-Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
+Custom watchDirectory:: Added:: {"id":26,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}
+Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/c/3/c-impl/c/lib 0 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /home/src/projects/a/1/a-impl/a/lib/node_modules 1 undefined Project: /home/src/projects/b/2/b-impl/b/tsconfig.json WatchType: Failed Lookup Locations
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -2376,9 +2246,13 @@ PolledWatches::
 /home/src/projects/c/3/c-impl/c/package.json: *new*
   {"event":{"id":29,"path":"/home/src/projects/c/3/c-impl/c/package.json"}}
 
+FsWatches::
+/home/src/projects/a/1/a-impl/a/lib: *new*
+  {"event":{"id":25,"path":"/home/src/projects/a/1/a-impl/a/lib","recursive":false,"ignoreUpdate":true}}
+/home/src/projects/c/3/c-impl/c/lib: *new*
+  {"event":{"id":26,"path":"/home/src/projects/c/3/c-impl/c/lib","recursive":false,"ignoreUpdate":true}}
+
 FsWatchesRecursive::
-/home/src/projects/a: *new*
-  {"event":{"id":25,"path":"/home/src/projects/a","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/a/1/a-impl/a/lib/node_modules: *new*
   {"event":{"id":27,"path":"/home/src/projects/a/1/a-impl/a/lib/node_modules","recursive":true}}
 /home/src/projects/a/1/a-impl/a/node_modules: *new*
@@ -2395,8 +2269,6 @@ FsWatchesRecursive::
   {"event":{"id":17,"path":"/home/src/projects/b/2/node_modules/@types","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/b/node_modules/@types:
   {"event":{"id":18,"path":"/home/src/projects/b/node_modules/@types","recursive":true,"ignoreUpdate":true}}
-/home/src/projects/c: *new*
-  {"event":{"id":26,"path":"/home/src/projects/c","recursive":true,"ignoreUpdate":true}}
 /home/src/projects/node_modules/@types:
   {"event":{"id":19,"path":"/home/src/projects/node_modules/@types","recursive":true,"ignoreUpdate":true}}
 
@@ -2463,7 +2335,7 @@ Info seq  [hh:mm:ss:mss] request:
           "/home/src/projects/b/2/b-impl/b/src/index.ts"
         ]
       },
-      "seq": 14,
+      "seq": 10,
       "type": "request"
     }
 Info seq  [hh:mm:ss:mss] response:
@@ -2473,10 +2345,10 @@ Info seq  [hh:mm:ss:mss] response:
 After request
 
 Timeout callback:: count: 1
-42: checkOne *new*
+36: checkOne *new*
 
 Before running Timeout callback:: count: 1
-42: checkOne
+36: checkOne
 
 Info seq  [hh:mm:ss:mss] event:
     {
@@ -2548,7 +2420,7 @@ Info seq  [hh:mm:ss:mss] event:
       "type": "event",
       "event": "requestCompleted",
       "body": {
-        "request_seq": 14,
+        "request_seq": 10,
         "performanceData": {
           "updateGraphDurationMs": *
         }
